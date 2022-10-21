@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+      }
+
+      let people = [];
+
+      while (true) {
+        let info = prompt("enter your name and age: ");
+
+        if (info === "" || info === null) {
+          break;
+        }
+        let arr = info.split(" ");
+        let userName = arr[0];
+        let userAge = Number(arr[1]);
+
+        let user = new Person(userName, userAge);
+        people.push(user);
+      }
+
+      function compare(a, b) {
+        if (a.age < b.age) {
+          return -1;
+        }
+        if (a.age > b.age) {
+          return 1;
+        }
+
+        return 0;
+      }
+
+      let sorted = people.sort(compare);
+      console.log(sorted);
+    </script>
+  </body>
+</html>
